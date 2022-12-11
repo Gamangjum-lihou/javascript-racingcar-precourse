@@ -13,15 +13,15 @@ const MESSAGE = {
 const view = {
   readCarName(callback) {
     Console.readLine(MESSAGE.read_car_name, (input) => {
-      errorHandler(() => carNameValidation.check(input), view.readCarName, callback);
-      callback(input);
+      const check = errorHandler(() => carNameValidation.check(input), view.readCarName, callback);
+      if (check) callback(input);
     });
   },
 
   readTryCount(callback) {
     Console.readLine(MESSAGE.read_try_count, (input) => {
-      errorHandler(() => tryCountValidation.check(input), view.readCarName);
-      callback(input);
+      const check = errorHandler(() => tryCountValidation.check(input), view.readCarName, callback);
+      if (check) callback(input);
     });
   },
 

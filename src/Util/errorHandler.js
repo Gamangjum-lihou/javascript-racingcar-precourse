@@ -1,11 +1,13 @@
 const { Console } = require('@woowacourse/mission-utils');
 
-function errorHandler(tryFunc, catchFunc, callback) {
+function errorHandler(tryFunc, catchFunc, nextFunc) {
   try {
     tryFunc();
+    return true;
   } catch (error) {
     Console.print(error.message);
-    catchFunc(callback);
+    catchFunc(nextFunc);
+    return false;
   }
 }
 
