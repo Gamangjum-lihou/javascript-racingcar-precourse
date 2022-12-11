@@ -1,3 +1,7 @@
+const isMove = require('../Util/isMove');
+
+const MOVE = '-';
+
 class Car {
   #info = {
     name: null,
@@ -6,6 +10,18 @@ class Car {
 
   constructor(name) {
     this.#info.name = name;
+  }
+
+  storeMove(move) {
+    if (isMove(move)) this.#info.current += MOVE;
+  }
+
+  getName() {
+    return this.#info.name;
+  }
+
+  getCurrent() {
+    return this.#info.current;
   }
 }
 
