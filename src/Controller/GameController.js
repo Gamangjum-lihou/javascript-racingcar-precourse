@@ -57,7 +57,7 @@ class GameController {
   }
 
   gameResult() {
-    const winner = checkWinner(this.#carList).join('').replace(/,/gi, ', ');
+    const winner = checkWinner(this.#carList).join(',').replace(/,/gi, ', ');
     printGameResult(winner);
     exit();
   }
