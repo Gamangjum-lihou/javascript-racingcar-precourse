@@ -1,7 +1,7 @@
 const LEASTNUMBER = 4;
 
 /**
- * 클리어에 성공했는지 판별하는 메서드
+ * 움직임 여부를 판단하는 함수
  */
 function isMove(move) {
   return move > LEASTNUMBER;
