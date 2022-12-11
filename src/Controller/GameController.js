@@ -15,11 +15,11 @@ class GameController {
   #carList = [];
 
   getCarName() {
-    readCarName(this.initializeCar.bind(this), this.getCarName.bind(this));
+    readCarName(this.initializeCar.bind(this));
   }
 
   initializeCar(input) {
-    const nameList = input.split(',');
+    const nameList = input.split(', ');
     nameList.forEach((name) => {
       const car = new Car(name);
       this.#carList.push(car);
@@ -28,7 +28,7 @@ class GameController {
   }
 
   getTryCount() {
-    readTryCount(this.startGame.bind(this), this.getTryCount.bind(this));
+    readTryCount(this.startGame.bind(this));
   }
 
   startGame(input) {

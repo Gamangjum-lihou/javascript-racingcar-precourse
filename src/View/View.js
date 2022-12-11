@@ -1,4 +1,7 @@
 const { Console } = require('@woowacourse/mission-utils');
+const carNameValidation = require('../Validation/carName');
+const tryCountValidation = require('../Validation/tryCount');
+const errorHandler = require('../Util/errorHandler');
 
 const MESSAGE = {
   read_car_name: '자동차 이름을 5자 이하로 콤마로 구분하여 입력해주세요.\n',
@@ -8,14 +11,16 @@ const MESSAGE = {
 };
 
 const view = {
-  readCarName(callback, comeback) {
+  readCarName(callback) {
     Console.readLine(MESSAGE.read_car_name, (input) => {
+      errorHandler(() => carNameValidation.check(input), view.readCarName, callback);
       callback(input);
     });
   },
 
-  readTryCount(callback, comeback) {
+  readTryCount(callback) {
     Console.readLine(MESSAGE.read_try_count, (input) => {
+      errorHandler(() => tryCountValidation.check(input), view.readCarName);
       callback(input);
     });
   },
