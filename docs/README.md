@@ -1,4 +1,25 @@
-// 여기에 문서 작성
+### 디렉토리 구조
+
+```
+📦src
+ ┣ 📂Controller
+ ┃ ┗ 📜GameController.js
+ ┣ 📂Error
+ ┃ ┗ 📜ValidationError.js
+ ┣ 📂Model
+ ┃ ┗ 📜Car.js
+ ┣ 📂Util
+ ┃ ┣ 📜RandomNumberGenerator.js
+ ┃ ┣ 📜checkWinner.js
+ ┃ ┣ 📜errorHandler.js
+ ┃ ┗ 📜isMove.js
+ ┣ 📂Validation
+ ┃ ┣ 📜carName.js
+ ┃ ┗ 📜tryCount.js
+ ┣ 📂View
+ ┃ ┗ 📜View.js
+ ┗ 📜App.js
+```
 
 ### 기능 목록
 
