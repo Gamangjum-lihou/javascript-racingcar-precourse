@@ -12,6 +12,9 @@ class Car {
     if (moveValue >= 4) {
       this.#distance += 1;
     }
+  }
+
+  getDistance() {
     return this.#distance;
   }
 
