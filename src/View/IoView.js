@@ -1,40 +1,41 @@
 const { Console } = require('@woowacourse/mission-utils');
+const { INPUT_MESSAGE, OUTPUT_MESSAGE } = require('../constants/Message');
 const { checkCarNameFormat, checkNumber } = require('../utils/InputValidator');
 
 const IoView = {
   readCarName(callback) {
-    Console.readLine('자동차 이름을 5자 이하로 콤마로 구분하여 입력해주세요.\n', (input) => {
+    Console.readLine(INPUT_MESSAGE.car_name, (input) => {
       try {
         checkCarNameFormat(input);
         callback(input);
       } catch (error) {
-        Console.print(`[ERROR] ${error.message}`);
+        Console.print(error.message);
         IoView.readCarName(callback);
       }
     });
   },
   readTryNumber(callback) {
-    Console.readLine('시도할 횟수를 입력해주세요.\n', (input) => {
+    Console.readLine(INPUT_MESSAGE.try_number, (input) => {
       try {
         checkNumber(input);
         callback(input);
       } catch (error) {
-        Console.print(`[ERROR] ${error.message}`);
+        Console.print(error.message);
         IoView.readTryNumber(callback);
       }
     });
   },
   printResultTitle() {
-    Console.print('실행 결과\n');
+    Console.print(OUTPUT_MESSAGE.result);
   },
   printResult(name, distance) {
-    Console.print(`${name}: ${'-'.repeat(distance)}`);
+    Console.print(OUTPUT_MESSAGE.move(name, distance));
   },
   printWinner(names) {
-    Console.print(`최종 우승자: ${names.join(', ')}`);
+    Console.print(OUTPUT_MESSAGE.winner(names));
   },
   printNewLine() {
-    Console.print('');
+    Console.print(OUTPUT_MESSAGE.blank);
   },
 };
 

@@ -1,3 +1,4 @@
+const { ONE, ZERO } = require('../constants/Number');
 const CarStore = require('../model/CarStore');
 const RandomNumbersPicker = require('../utils/RandomNumbersPicker');
 const WinnerFinder = require('../utils/WinnerFinder');
@@ -26,7 +27,7 @@ class CarGameController {
     readTryNumber((input) => {
       printNewLine();
       printResultTitle();
-      for (let i = 0; i < input; i += 1) {
+      for (let count = ZERO; count < input; count += ONE) {
         this.#move(carsNumber);
       }
       this.#showWinner();

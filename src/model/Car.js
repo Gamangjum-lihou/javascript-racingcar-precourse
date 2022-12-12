@@ -1,3 +1,5 @@
+const { ZERO, MOVE_STANDARD, ONE } = require('../constants/Number');
+
 class Car {
   #name;
 
@@ -5,12 +7,12 @@ class Car {
 
   constructor(name) {
     this.#name = name;
-    this.#distance = 0;
+    this.#distance = ZERO;
   }
 
   move(moveValue) {
-    if (moveValue >= 4) {
-      this.#distance += 1;
+    if (moveValue >= MOVE_STANDARD) {
+      this.#distance += ONE;
     }
   }
 
