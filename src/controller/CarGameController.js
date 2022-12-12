@@ -15,6 +15,7 @@ class CarGameController {
 
   run() {
     readCarName((input) => {
+      printNewLine();
       const cars = input.split(' ').join('').split(',');
       this.#carStore = new CarStore(cars);
       this.#repeatMove(cars.length);
@@ -23,6 +24,8 @@ class CarGameController {
 
   #repeatMove(carsNumber) {
     readTryNumber((input) => {
+      printNewLine();
+      printResultTitle();
       for (let i = 0; i < input; i += 1) {
         this.#move(carsNumber);
       }

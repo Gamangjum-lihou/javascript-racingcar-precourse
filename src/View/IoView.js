@@ -13,7 +13,7 @@ const IoView = {
     Console.print('실행결과\n');
   },
   printResult(name, distance) {
-    Console.print(`${name}: ${distance}`);
+    Console.print(`${name}: ${'-'.repeat(distance)}`);
   },
   printWinner(names) {
     Console.print(`최종 우승자: ${names.join(', ')}`);
