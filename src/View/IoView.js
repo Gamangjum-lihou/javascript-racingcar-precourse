@@ -1,13 +1,28 @@
 const { Console } = require('@woowacourse/mission-utils');
+const { checkCarNameFormat, checkNumber } = require('../utils/InputValidator');
 
 const IoView = {
   readCarName(callback) {
-    Console.readLine('자동차 이름을 5자 이하로 콤마로 구분하여 입력해주세요.\n', (input) =>
-      callback(input)
-    );
+    Console.readLine('자동차 이름을 5자 이하로 콤마로 구분하여 입력해주세요.\n', (input) => {
+      try {
+        checkCarNameFormat(input);
+        callback(input);
+      } catch (error) {
+        Console.print(`[ERROR] ${error.message}`);
+        IoView.readCarName(callback);
+      }
+    });
   },
   readTryNumber(callback) {
-    Console.readLine('시도할 횟수를 입력해주세요.\n', (input) => callback(input));
+    Console.readLine('시도할 횟수를 입력해주세요.\n', (input) => {
+      try {
+        checkNumber(input);
+        callback(input);
+      } catch (error) {
+        Console.print(`[ERROR] ${error.message}`);
+        IoView.readTryNumber(callback);
+      }
+    });
   },
   printResultTitle() {
     Console.print('실행결과\n');
