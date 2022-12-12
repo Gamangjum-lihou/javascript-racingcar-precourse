@@ -25,7 +25,7 @@ const IoView = {
     });
   },
   printResultTitle() {
-    Console.print('실행결과\n');
+    Console.print('실행 결과\n');
   },
   printResult(name, distance) {
     Console.print(`${name}: ${'-'.repeat(distance)}`);
