@@ -33,6 +33,7 @@ const IoView = {
   },
   printWinner(names) {
     Console.print(OUTPUT_MESSAGE.winner(names));
+    Console.close();
   },
   printNewLine() {
     Console.print(OUTPUT_MESSAGE.blank);
