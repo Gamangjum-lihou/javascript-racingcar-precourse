@@ -1,20 +1,16 @@
-const Car = require("./Car")
+const Car = require('./Car');
 
+class Model {
+  #carName;
 
-class Model  {
+  saveCarName(input) {
+    this.#carName = input;
+  }
 
-    #carName
-
-
-
-    saveCarName(input) {
-        this.#carName = input    
-    }
-
-    calculate(input) {
-       const car = new Car(this.#carName,input)
-       return car.getResult()
-    }
+  calculate(input) {
+    const car = new Car(this.#carName, input);
+    return car.getResult();
+  }
 }
 
-module.exports = Model
+module.exports = Model;

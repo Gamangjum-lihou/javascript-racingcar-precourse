@@ -4,11 +4,10 @@ const Model = require('../Model');
 const Validator = require('../Validator');
 const View = require('../View');
 
-
-const CAR_NAME = "CarName"
-const TRY = "try"
-const V_CAR_NAME = "checkCarName"
-const V_TRY = "checkTry"
+const CAR_NAME = 'CarName';
+const TRY = 'try';
+const V_CAR_NAME = 'checkCarName';
+const V_TRY = 'checkTry';
 
 class RacingController {
   #model;
@@ -18,13 +17,13 @@ class RacingController {
   #validator;
 
   constructor() {
-    this.#model = new Model()
+    this.#model = new Model();
     this.#view = View;
     this.#validator = Validator;
   }
 
-  start(){
-    this.#inputCarName()
+  start() {
+    this.#inputCarName();
   }
 
   #inputCarName() {
@@ -32,9 +31,10 @@ class RacingController {
   }
 
   #readCarName(input) {
-    if(this.#hasErrorOccurredByCheck(input,V_CAR_NAME)) return this.#retry(CAR_NAME);
-    this.#model.saveCarName(input)
-    this.#inputTry()
+    if (this.#hasErrorOccurredByCheck(input, V_CAR_NAME))
+      return this.#retry(CAR_NAME);
+    this.#model.saveCarName(input);
+    this.#inputTry();
   }
 
   #inputTry() {
@@ -42,32 +42,30 @@ class RacingController {
   }
 
   #readTry(input) {
-    if(this.#hasErrorOccurredByCheck(input,V_TRY)) return this.#retry(TRY);
-    this.#view.printResult(this.#model.calculate(input))
-
+    if (this.#hasErrorOccurredByCheck(input, V_TRY)) return this.#retry(TRY);
+    this.#view.printResult(this.#model.calculate(input));
   }
-  
+
   #hasErrorOccurredByCheck(input, name) {
     try {
-        this.#validator[name](input);
-        } catch (error) {
-        return this.#handleError(error);
-        }
+      this.#validator[name](input);
+    } catch (error) {
+      return this.#handleError(error);
     }
+  }
 
   #handleError(error) {
     if (error instanceof ValidationError) {
-     this.#view.printError(new ReadError('Validation Error', error));
+      this.#view.printError(new ReadError('Validation Error', error));
       return true;
     }
     throw error;
-  } 
+  }
 
   #retry(input) {
     if (input === 'CarName') return this.#inputCarName();
-    if (input === 'try') return this.#inputTry() 
+    if (input === 'try') return this.#inputTry();
   }
-
 }
 
-module.exports = RacingController
+module.exports = RacingController;

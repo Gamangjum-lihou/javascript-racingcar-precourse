@@ -1,15 +1,14 @@
-const RacingController = require("./Controller/RacingController");
-
+const RacingController = require('./Controller/RacingController');
 
 class App {
-	play() {
-		const racingController = new RacingController()
-		racingController.start()
-	}
+  play() {
+    const racingController = new RacingController();
+    racingController.start();
+  }
 }
 
-const app = new App()
+const app = new App();
 
-app.play()
+app.play();
 
 module.exports = App;

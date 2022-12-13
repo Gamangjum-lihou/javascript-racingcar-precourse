@@ -1,6 +1,6 @@
 const InputView = require('./InputView');
 const OutputView = require('./OutputView');
-const {INPUT_MESSAGE} = require("../Constants/view")
+const { INPUT_MESSAGE } = require('../Constants/view');
 
 const View = {
   readCarName(callback) {
@@ -16,8 +16,8 @@ const View = {
   },
 
   printResult(input) {
-    OutputView.printResult(input)
-  }
-}
+    OutputView.printResult(input);
+  },
+};
 
 module.exports = View;

@@ -1,29 +1,27 @@
-const ValidationError = require("../Error/ValidationError")
-const ERROR_MESSAGE = require("../Constants/error")
+const ValidationError = require('../Error/ValidationError');
+const ERROR_MESSAGE = require('../Constants/error');
 
+class Try {
+  constructor(input) {
+    this.#checkInput(input);
+  }
 
-class Try{
+  #checkInput(input) {
+    this.#checkNumber(input);
+    this.#checkZero(input);
+  }
 
-    constructor(input) {
-        this.#checkInput(input)
+  #checkNumber(input) {
+    if (/\D/.test(input)) {
+      throw new ValidationError(ERROR_MESSAGE.number);
     }
+  }
 
-    #checkInput(input) {
-        this.#checkNumber(input)
-        this.#checkZero(input)
+  #checkZero(input) {
+    if (/^0/.test(input)) {
+      throw new ValidationError(ERROR_MESSAGE.zero);
     }
-
-    #checkNumber(input) {
-        if(/\D/.test(input)) {
-            throw new ValidationError(ERROR_MESSAGE.number)
-        }
-    }
-
-    #checkZero(input) {
-        if(/^0/.test(input)) {
-            throw new ValidationError(ERROR_MESSAGE.zero)
-        }
-    }
+  }
 }
 
-module.exports = Try
+module.exports = Try;
