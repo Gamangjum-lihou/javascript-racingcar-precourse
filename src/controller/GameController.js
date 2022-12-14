@@ -19,20 +19,32 @@ class GameController {
       .map((name) => name.trim());
     Validation.name(nameArray);
     this.#car = new Car(nameArray);
-    console.log(nameArray);
     InputView.readCount(this.checkCount.bind(this));
   }
 
   checkCount(number) {
     Validation.count(Number(number));
     OutputView.printResult();
+    this.startRaceAndShowResult(number);
+    this.showWinners();
+    this.endGame();
+  }
+
+  startRaceAndShowResult(number) {
     Array.from({ length: number }).forEach(() => {
       this.#car.racing();
       const result = this.#car.getResult();
       OutputView.printMap(result);
     });
+  }
+
+  showWinners() {
     const winners = this.#car.calculateWinners();
     OutputView.printWinners(winners);
+  }
+
+  endGame() {
+    OutputView.close();
   }
 }
 

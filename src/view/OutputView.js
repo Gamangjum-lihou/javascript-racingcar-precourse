@@ -19,6 +19,9 @@ const OutputView = {
     const stringWinners = winners.join(', ');
     Console.print(GAME_MESSAGE.showWinners(stringWinners));
   },
+  close() {
+    Console.close();
+  },
 };
 
 module.exports = OutputView;
