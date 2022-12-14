@@ -14,20 +14,52 @@ class GameController {
   }
 
   checkName(names) {
+    try {
+      const nameArray = GameController.convertNameArray(names);
+      Validation.name(nameArray);
+      this.createCarAndInputCount(nameArray);
+    } catch (error) {
+      OutputView.printMessage(error.message);
+      InputView.readCarName(this.checkName.bind(this));
+    }
+  }
+
+  createCarAndInputCount(nameArray) {
+    this.createCar(nameArray);
+    this.inputCount();
+  }
+
+  static convertNameArray(names) {
     const nameArray = names
       .split(GAME_STRING.dividingLine)
       .map((name) => name.trim());
-    Validation.name(nameArray);
+
+    return nameArray;
+  }
+
+  createCar(nameArray) {
     this.#car = new Car(nameArray);
+  }
+
+  inputCount() {
     InputView.readCount(this.checkCount.bind(this));
   }
 
   checkCount(number) {
-    Validation.count(Number(number));
+    try {
+      Validation.count(Number(number));
+      this.progressGame(number);
+    } catch (error) {
+      OutputView.printMessage(error.message);
+      InputView.readCount(this.checkCount.bind(this));
+    }
+  }
+
+  progressGame(number) {
     OutputView.printResult();
     this.startRaceAndShowResult(number);
     this.showWinners();
-    this.endGame();
+    GameController.endGame();
   }
 
   startRaceAndShowResult(number) {
@@ -43,7 +75,7 @@ class GameController {
     OutputView.printWinners(winners);
   }
 
-  endGame() {
+  static endGame() {
     OutputView.close();
   }
 }
