@@ -3,10 +3,10 @@ const { GAME_MESSAGE } = require('../Constant');
 
 const InputView = {
   readCarName(callback) {
-    Console.readLine(GAME_MESSAGE.inputName, callback);
+    Console.readLine(`${GAME_MESSAGE.inputName}\n`, callback);
   },
   readCount(callback) {
-    Console.readLine(GAME_MESSAGE.inputCount, callback);
+    Console.readLine(`${GAME_MESSAGE.inputCount}\n`, callback);
   },
 };
 

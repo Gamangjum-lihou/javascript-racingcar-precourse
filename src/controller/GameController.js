@@ -3,6 +3,7 @@ const Car = require('../model/Car');
 const CreateRandomNumber = require('../model/CreateRandomNumber');
 const Validation = require('../Validation');
 const InputView = require('../view/InputView');
+const OutputView = require('../view/OutputView');
 
 class GameController {
   #car;
@@ -24,10 +25,11 @@ class GameController {
 
   checkCount(number) {
     Validation.count(Number(number));
+    OutputView.printResult();
     Array.from({ length: number }).forEach(() => {
       this.#car.racing();
       const result = this.#car.getResult();
-      console.log(result);
+      OutputView.printMap(result);
     });
   }
 }
