@@ -1,3 +1,5 @@
+const { GAME_STRING } = require('../Constant');
+const Validation = require('../Validation');
 const InputView = require('../view/InputView');
 
 class GameController {
@@ -6,6 +8,10 @@ class GameController {
   }
 
   checkName(names) {
+    const nameArray = names
+      .split(GAME_STRING.dividingLine)
+      .map((name) => name.trim());
+    Validation.name(nameArray);
     console.log(names);
   }
 }
