@@ -6,6 +6,9 @@ const GAME_NUMBER = Object.freeze({
   nameLimit: 5,
   countRangeStart: 1,
   countRangeEnd: 20,
+  randomStart: 0,
+  randomEnd: 9,
+  standard: 4,
 });
 
 const GAME_MESSAGE = Object.freeze({

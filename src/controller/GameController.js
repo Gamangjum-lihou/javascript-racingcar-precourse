@@ -1,5 +1,6 @@
 const { GAME_STRING } = require('../Constant');
 const Car = require('../model/Car');
+const CreateRandomNumber = require('../model/CreateRandomNumber');
 const Validation = require('../Validation');
 const InputView = require('../view/InputView');
 
@@ -7,6 +8,7 @@ class GameController {
   #car;
 
   startGame() {
+    CreateRandomNumber();
     InputView.readCarName(this.checkName.bind(this));
   }
 
@@ -16,7 +18,7 @@ class GameController {
       .map((name) => name.trim());
     Validation.name(nameArray);
     this.#car = new Car(nameArray);
-    console.log(names);
+    console.log(nameArray);
     InputView.readCount(this.checkCount.bind(this));
   }
 
