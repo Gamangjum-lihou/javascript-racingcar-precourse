@@ -13,6 +13,27 @@ class Car {
     });
   }
 
+  calculateWinners() {
+    const winners = [];
+    const maxLength = this.calculateMaxLength();
+    this.#name.forEach((element) => {
+      if (this.#result[element].length === maxLength) {
+        winners.push(element);
+      }
+    });
+    return winners;
+  }
+
+  calculateMaxLength() {
+    const marks = Object.values(this.#result);
+    let maxLength = 0;
+    marks.forEach((mark) => {
+      maxLength = Math.max(maxLength, mark.length);
+    });
+
+    return maxLength;
+  }
+
   racing() {
     this.#name.forEach((name) => {
       if (Car.isForward(CreateRandomNumber())) {

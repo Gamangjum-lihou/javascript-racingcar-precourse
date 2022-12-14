@@ -31,6 +31,8 @@ class GameController {
       const result = this.#car.getResult();
       OutputView.printMap(result);
     });
+    const winners = this.#car.calculateWinners();
+    console.log(winners);
   }
 }
 
