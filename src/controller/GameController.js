@@ -32,7 +32,7 @@ class GameController {
       OutputView.printMap(result);
     });
     const winners = this.#car.calculateWinners();
-    console.log(winners);
+    OutputView.printWinners(winners);
   }
 }
 

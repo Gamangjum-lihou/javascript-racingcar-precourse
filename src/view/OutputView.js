@@ -15,6 +15,10 @@ const OutputView = {
 
     Console.print(message);
   },
+  printWinners(winners) {
+    const stringWinners = winners.join(', ');
+    Console.print(GAME_MESSAGE.showWinners(stringWinners));
+  },
 };
 
 module.exports = OutputView;
