@@ -24,6 +24,11 @@ class GameController {
 
   checkCount(number) {
     Validation.count(Number(number));
+    Array.from({ length: number }).forEach(() => {
+      this.#car.racing();
+      const result = this.#car.getResult();
+      console.log(result);
+    });
   }
 }
 

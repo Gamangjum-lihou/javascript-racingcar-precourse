@@ -6,8 +6,8 @@ const CreateRandomNumber = () => {
     GAME_NUMBER.randomStart,
     GAME_NUMBER.randomEnd
   );
-  
-  console.log(randomNumber);
+
+  return randomNumber;
 };
 
 module.exports = CreateRandomNumber;
