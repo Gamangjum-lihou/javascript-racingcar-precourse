@@ -17,6 +17,11 @@ class GameController {
     Validation.name(nameArray);
     this.#car = new Car(nameArray);
     console.log(names);
+    InputView.readCount(this.checkCount.bind(this));
+  }
+
+  checkCount(count) {
+    console.log(count);
   }
 }
 

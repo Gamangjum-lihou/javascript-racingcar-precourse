@@ -5,6 +5,9 @@ const InputView = {
   readCarName(callback) {
     Console.readLine(GAME_MESSAGE.inputName, callback);
   },
+  readCount(callback) {
+    Console.readLine(GAME_MESSAGE.inputCount, callback);
+  },
 };
 
 module.exports = InputView;
