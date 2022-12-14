@@ -20,8 +20,8 @@ class GameController {
     InputView.readCount(this.checkCount.bind(this));
   }
 
-  checkCount(count) {
-    console.log(count);
+  checkCount(number) {
+    Validation.count(Number(number));
   }
 }
 
