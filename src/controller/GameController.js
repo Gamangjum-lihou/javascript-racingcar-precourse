@@ -2,15 +2,21 @@ const { GAME_STRING } = require('../Constant');
 const Car = require('../model/Car');
 const CreateRandomNumber = require('../model/CreateRandomNumber');
 const Validation = require('../Validation');
-const InputView = require('../view/InputView');
-const OutputView = require('../view/OutputView');
+const { readCarName, readCount } = require('../view/InputView');
+const {
+  close,
+  printMessage,
+  printResult,
+  printMap,
+  printWinners,
+} = require('../view/OutputView');
 
 class GameController {
   #car;
 
   startGame() {
     CreateRandomNumber();
-    InputView.readCarName(this.checkName.bind(this));
+    readCarName(this.checkName.bind(this));
   }
 
   checkName(names) {
@@ -19,8 +25,8 @@ class GameController {
       Validation.name(nameArray);
       this.createCarAndInputCount(nameArray);
     } catch (error) {
-      OutputView.printMessage(error.message);
-      InputView.readCarName(this.checkName.bind(this));
+      printMessage(error.message);
+      readCarName(this.checkName.bind(this));
     }
   }
 
@@ -42,7 +48,7 @@ class GameController {
   }
 
   inputCount() {
-    InputView.readCount(this.checkCount.bind(this));
+    readCount(this.checkCount.bind(this));
   }
 
   checkCount(number) {
@@ -50,13 +56,13 @@ class GameController {
       Validation.count(Number(number));
       this.progressGame(number);
     } catch (error) {
-      OutputView.printMessage(error.message);
-      InputView.readCount(this.checkCount.bind(this));
+      printMessage(error.message);
+      readCount(this.checkCount.bind(this));
     }
   }
 
   progressGame(number) {
-    OutputView.printResult();
+    printResult();
     this.startRaceAndShowResult(number);
     this.showWinners();
     GameController.endGame();
@@ -66,17 +72,17 @@ class GameController {
     Array.from({ length: number }).forEach(() => {
       this.#car.racing();
       const result = this.#car.getResult();
-      OutputView.printMap(result);
+      printMap(result);
     });
   }
 
   showWinners() {
     const winners = this.#car.calculateWinners();
-    OutputView.printWinners(winners);
+    printWinners(winners);
   }
 
   static endGame() {
-    OutputView.close();
+    close();
   }
 }
 
