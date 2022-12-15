@@ -1,4 +1,4 @@
-const { GAME_NUMBER } = require('../Constant');
+const { GAME_NUMBER, GAME_STRING } = require('../Constant');
 const CreateRandomNumber = require('./CreateRandomNumber');
 
 class Car {
@@ -55,7 +55,7 @@ class Car {
   }
 
   goForward(name) {
-    this.#result[name] += '-';
+    this.#result[name] += GAME_STRING.carProgress;
   }
 }
 

@@ -1,14 +1,14 @@
-const { GAME_STRING, ERROR_MESSAGE, GAME_NUMBER } = require('./Constant');
+const { ERROR_MESSAGE, GAME_NUMBER } = require('./Constant');
 
 const Validation = {
   name(nameArray) {
-    this.nameLength(nameArray);
-    this.nameOverlap(nameArray);
-    this.nameNonexistent(nameArray);
+    Validation.nameLength(nameArray);
+    Validation.nameOverlap(nameArray);
+    Validation.nameNonexistent(nameArray);
   },
   count(number) {
-    this.interger(number);
-    this.countRange(number);
+    Validation.interger(number);
+    Validation.countRange(number);
   },
   nameLength(nameArray) {
     nameArray.forEach((name) => {

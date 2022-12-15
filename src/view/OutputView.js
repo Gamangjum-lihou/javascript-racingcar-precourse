@@ -1,5 +1,5 @@
 const { Console } = require('@woowacourse/mission-utils');
-const { GAME_MESSAGE } = require('../Constant');
+const { GAME_MESSAGE, GAME_STRING } = require('../Constant');
 
 const OutputView = {
   printResult() {
@@ -16,7 +16,7 @@ const OutputView = {
     Console.print(message);
   },
   printWinners(winners) {
-    const stringWinners = winners.join(', ');
+    const stringWinners = winners.join(GAME_STRING.winnerSplit);
     Console.print(GAME_MESSAGE.showWinners(stringWinners));
   },
   printMessage(message) {

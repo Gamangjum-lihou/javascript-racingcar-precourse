@@ -1,5 +1,7 @@
 const GAME_STRING = Object.freeze({
   dividingLine: ',',
+  winnerSplit: ', ',
+  carProgress: '-',
 });
 
 const GAME_NUMBER = Object.freeze({
