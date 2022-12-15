@@ -15,7 +15,6 @@ class GameController {
   #car;
 
   startGame() {
-    CreateRandomNumber();
     readCarName(this.checkName.bind(this));
   }
 

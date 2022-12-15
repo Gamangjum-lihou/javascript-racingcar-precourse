@@ -46,7 +46,7 @@ const expectLogContains = (received, logs) => {
 describe('Car 클래스 테스트', () => {
   test('기능 테스트 1', () => {
     const logSpy = getLogSpy();
-    mockRandoms([0, 1, 4, 1, 4]);
+    mockRandoms([1, 4, 1, 4]);
     mockQuestions(['사과,바나나', 2]);
 
     const app = new App();
@@ -64,7 +64,7 @@ describe('Car 클래스 테스트', () => {
 
   test('기능 테스트 2', () => {
     const logSpy = getLogSpy();
-    mockRandoms([0, 1, 4, 4, 1, 4, 4, 4, 4, 4]);
+    mockRandoms([1, 4, 4, 1, 4, 4, 4, 4, 4]);
     mockQuestions(['사과,바나나,대추', 3]);
 
     const app = new App();
